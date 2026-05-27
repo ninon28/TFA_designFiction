@@ -4,6 +4,7 @@
         width: 1192px;
         height: 674px;
     }
+
     &__container{
         position: absolute;
         cursor: pointer;
@@ -16,6 +17,7 @@
 
         transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
+
     &__content{
         display: none;
     }
@@ -43,9 +45,6 @@
 }
 
 .open2{
-    position: fixed;
-    top: 133px;
-    left: 0;
     width: 1192px;
     height: 674px;
     z-index: 20;
@@ -55,15 +54,21 @@
     border-radius: 5px;
     overflow-y: auto;
 
-    &--content{
+    .boiteOutils__content{
         display: flex;
         flex-direction: column;
     }
 }
 
+.open2 ~ .btn--ferme{
+    opacity: 1;
+}
+
 .btn--ferme{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: white; //attention changer la couleur
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        color: white; //attention changer la couleur
+        z-index: 30;
 }

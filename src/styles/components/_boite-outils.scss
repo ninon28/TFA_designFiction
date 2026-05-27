@@ -1,0 +1,69 @@
+.boiteOutils{
+    &__box{
+        position: relative;
+        width: 1192px;
+        height: 674px;
+    }
+    &__container{
+        position: absolute;
+        cursor: pointer;
+        overflow: hidden;
+
+        background-color: $bg-opacity;
+        color: $color-grey;
+        border-radius: 5px;
+        height: 327px;
+
+        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    &__content{
+        display: none;
+    }
+}
+
+.hautG{
+    top: 0;
+    left: 0;
+    width: 673px;
+}
+.hautD{
+    top: 0;
+    right: 0;
+    width: 499px;
+}
+.basG{
+    bottom: 0;
+    left: 0;
+    width: 326px;
+}
+.basD{
+    bottom: 0;
+    right: 0;
+    width: 846px;
+}
+
+.open2{
+    position: fixed;
+    top: 133px;
+    left: 0;
+    width: 1192px;
+    height: 674px;
+    z-index: 20;
+
+    background-color: $color-grey;
+    color: $bg-color;
+    border-radius: 5px;
+    overflow-y: auto;
+
+    &--content{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.btn--ferme{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white; //attention changer la couleur
+}

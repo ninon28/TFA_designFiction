@@ -112,21 +112,16 @@ function boiteActive(){
     const boiteClicked = event.currentTarget;
     const boiteContent = boiteClicked.querySelector('.boiteOutils__content');
     const btnNot = document.querySelector('.btn--ferme');
-    const body = document.querySelector('body');
 
     boiteClicked.classList.add('open2');
-    body.classList.add('no-scroll');
 }
 
 const btnFerme = document.querySelector('.btn--ferme');
 
 btnFerme.addEventListener('click', function(){
     const boiteActive = document.querySelector('.open2');
-    const body = document.querySelector('body');
 
     boiteActive.classList.remove('open2');
-    body.classList.remove('no-scroll');
-    console.log(btnFerme);
 });
 
 

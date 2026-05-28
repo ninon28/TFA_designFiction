@@ -111,11 +111,11 @@ boiteContainer.forEach(function(boiteOpen){
 function boiteActive(){
     const boiteClicked = event.currentTarget;
     const boiteContent = boiteClicked.querySelector('.boiteOutils__content');
-    const btnNot = document.querySelector('.btn--ferme');
 
-    boiteClicked.classList.add('open2');
+    boiteClicked.classList.toggle('open2');
 }
 
+//on ferme soit en recliquant sur le rectangle soit sur les flèches
 const btnFerme = document.querySelector('.btn--ferme');
 
 btnFerme.addEventListener('click', function(){

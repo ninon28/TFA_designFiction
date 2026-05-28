@@ -23,8 +23,8 @@
         transition: all 0.3s ease-in-out;
 
         &:hover{
-            color: $bg-color;
-            background-color: $color-grey;
+            color: $text-color;
+            background-color: $lightBg-color;
         }
     }
 
@@ -36,7 +36,6 @@
         display: flex;
         align-items: center;
         gap: 28px;
-        overflow: hidden;
     }
 
     &__parties{
@@ -75,12 +74,13 @@
     height: 674px;
     z-index: 20;
 
-    background-color: $color-grey;
-    color: $bg-color;
+    background-color: $lightBg-color;
+    color: $text-color;
     border-radius: 5px;
     overflow-y: auto;
 
     .boiteOutils__content{
+        position: relative;
         display: flex;
         flex-direction: column;
         margin: 0 160px 40px 160px;
@@ -99,4 +99,62 @@
         opacity: 0;
         color: white; //attention changer la couleur
         z-index: 30;
+}
+
+.objet{
+    position: absolute;
+    width: 220px;
+    height: 200px;
+    perspective: 600px;
+
+    &__carte{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+
+        &:hover{
+            transform: rotateY(180deg);
+        }
+    }
+    
+    &__face{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        background-color: $lightBg-color;
+
+        &--front{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        &--back{
+            transform: rotateY(180deg);
+        }
+    }
+}
+.note{
+    top: 0;
+    left: 0;
+}
+.fidget{
+    top: 5vh;
+    left: 37%;
+}
+.dumbphone{
+    top: 0;
+    right: 0;
+}
+.livre{
+    bottom: -55vh;
+    left: 17%;
+}
+.montre{
+    bottom: -55vh;
+    right: 17%;
 }

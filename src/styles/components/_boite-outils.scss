@@ -26,6 +26,10 @@
         &:hover{
             color: $text-color;
             background-color: $lightBg-color;
+
+            .btn--img{
+                fill: $text-color;
+            }
         }
     }
 
@@ -90,19 +94,28 @@
         margin: 0 160px 40px 160px;
         gap: 80px;
     }
+
+    .btn--ouvrir{
+        opacity: 0;
+    }
 }
 
 .open2 ~ .btn--ferme{
-    opacity: 1;
+    display: flex;
 }
 
 .btn--ferme{
         position: absolute;
         bottom: 0;
         right: 0;
-        opacity: 0;
-        color: white; //attention changer la couleur
+        display: none;
         z-index: 30;
+}
+
+.btn--ouvrir{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 // les objets du kit de survie + animation
@@ -156,8 +169,8 @@
     right: 0;
 }
 .livre{
-    bottom: -55vh;
-    left: 17%;
+    bottom: -52vh;
+    left: 20%;
 }
 .montre{
     bottom: -55vh;

@@ -1,4 +1,8 @@
 .boiteOutils{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &__box{
         position: relative;
         width: 1192px;
@@ -14,13 +18,35 @@
         color: $color-grey;
         border-radius: 5px;
         height: 327px;
+        padding: 20px 0 0 20px;
 
-        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            color: $bg-color;
+            background-color: $color-grey;
+        }
     }
 
     &__content{
         display: none;
     }
+
+    &__flex{
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        overflow: hidden;
+    }
+
+    &__parties{
+        margin-top: 80px;
+    }
+}
+
+.bigNum{
+    font-size: 45.2rem;
+    line-height: 100%;
 }
 
 .hautG{
@@ -57,6 +83,8 @@
     .boiteOutils__content{
         display: flex;
         flex-direction: column;
+        margin: 0 160px 40px 160px;
+        gap: 80px;
     }
 }
 

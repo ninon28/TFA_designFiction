@@ -3,7 +3,16 @@
     flex-direction: column;
     align-items: center;
     gap: 160px;
-    margin-top: 40px;
+    margin: 40px 0;
+
+    @media (max-width: 700px){
+        gap: 57px;
+        margin: 28px 0;
+    }
+    @media (min-width: 701px) and (max-width: 1247px){
+        gap: 80px;
+        margin: 28px 0;
+    }
 }
 
 .intro{

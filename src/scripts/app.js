@@ -110,9 +110,25 @@ boiteContainer.forEach(function(boiteOpen){
 
 function boiteActive(){
     const boiteClicked = event.currentTarget;
-    const boiteContent = boiteClicked.querySelector('.boiteOutils__content');
 
-    boiteClicked.classList.toggle('open2');
+    if(window.innerWidth < 1248){
+        const isOpen = document.querySelector('.boiteOutils__container.open2');
+
+        if( boiteClicked === isOpen){
+            boiteClicked.classList.remove('open2');
+        }else{
+            if(isOpen){
+                isOpen.classList.remove('open2');
+            }
+            boiteClicked.classList.add('open2');
+
+            boiteClicked.scrollIntoView({ behavior: 'smooth', block: 'start'});
+        }
+    }else{
+        const boiteContent = boiteClicked.querySelector('.boiteOutils__content');
+    
+        boiteClicked.classList.toggle('open2');
+    }
 }
 
 //on ferme soit en recliquant sur le rectangle soit sur les flèches

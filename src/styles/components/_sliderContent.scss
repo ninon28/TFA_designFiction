@@ -8,6 +8,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    gap: 80px;
 
     background-color: $lightBg-color;
     border-radius: 20px 20px 0 0;
@@ -15,12 +16,22 @@
     transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
 
+    @media (max-width: 1000px){
+        gap: 57px;
+    }
+
     &__content{
         display: flex;
+        flex-direction: row-reverse;
         gap: 40px;
         
         max-width: 1192px;
         margin: 0 40px;
+
+        @media (max-width: 1000px){
+            flex-direction: column;
+            margin: 0;
+        }
     }
 }
 
@@ -61,11 +72,21 @@
 
 .imgSection{
     height: 100vh;
+    object-fit: cover;
     position: sticky;
     top: 0;
+
+    @media (max-width: 1000px){
+        height: 100vw;
+        position: relative;
+    }
 }
 
 .hourChange{
     display: flex;
-    margin: 80px 0 40px 0;
+    margin-bottom: 40px;
+
+    @media (max-width: 1000px){
+        margin-bottom: 20px;
+    }
 }

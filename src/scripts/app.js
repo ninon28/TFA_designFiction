@@ -121,7 +121,8 @@ function boiteActive(event){
         const boiteOpen = document.querySelector('.boiteOutils__container.open2');
 
         if( boiteClicked === boiteOpen){
-            return;
+            boiteOpen.scrollTop = 0;
+            boiteOpen.classList.remove('open2');
         }else{
             if(boiteOpen){
                 boiteOpen.scrollTop = 0;

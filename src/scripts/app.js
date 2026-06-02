@@ -35,7 +35,7 @@ ScrollTrigger.create({
 //comme slide--X = contentContainer--X -> on peut faire une boucle pour pas devoir écrire la fonction pour chaque heure
 //puis on récupère avec des doc.querySelector
 //on vérifie que ça existe pour pas tout bugger et on écoute le click + on add la classe open
-for (let i = 1; i <= 9; i++){
+for (let i = 1; i <= 13; i++){
     const slide = document.querySelector('.sliderContainer__slide--' + i);
     const section = document.querySelector('.contentContainer--' + i);
     const body = document.querySelector('body');

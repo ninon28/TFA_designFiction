@@ -225,10 +225,13 @@
 
 .btn--ouvrir{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 10px;
+    right: 10px;
 
     @media (max-width: 1247px){
-        display: none;
+        bottom: 5px;
+        right: 5px;
+        width: 35px;
+        height: auto;
     }
 }

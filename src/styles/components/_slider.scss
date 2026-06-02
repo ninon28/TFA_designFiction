@@ -4,12 +4,18 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+
+    @media (hover: none){
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 }
 
 .sliderContainer{
     display: flex;
     gap: 20px;
     padding: 0 0 0 50vw;
+    flex-wrap: nowrap;
     
     &:has(.sliderContainer__el:hover) &__el {
         transform: translateX(-150px);
@@ -22,8 +28,10 @@
         cursor: pointer;
         transition: width .3s ease-in-out, transform .3s ease-in-out;
 
-        &:hover{
-            width: 200px;
+        @media (hover: hover){
+            &:hover{
+                width: 200px;
+            }
         }
     }
 
@@ -35,8 +43,10 @@
         filter: grayscale(100%);
         transition: filter .3s ease-in-out;
 
-        &:hover{
-            filter: grayscale(0%);
+        @media (hover: hover){
+            &:hover{
+                filter: grayscale(0%);
+            }
         }
     }
 }

@@ -6,29 +6,33 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-//on calcule la longueur du slider pour connaitre la hauteur du scroll (moins la moitié de l'écran)
-function getScrollAmount() {
-    const sliderContainer = document.querySelector('.sliderContainer');
-    const widthSlider = sliderContainer.scrollWidth; 
-    const widthEcran = window.innerWidth
-    
-    return widthSlider - (widthEcran / 2);
-}
+const curseur = gsap.matchMedia();
 
-const tween = gsap.to(".sliderContainer", {
-    x:function(){ return -1 * getScrollAmount();},
-    ease: "none",
+curseur.add("(hover: hover)", function(){
+    //on calcule la longueur du slider pour connaitre la hauteur du scroll (moins la moitié de l'écran)
+    function getScrollAmount() {
+        const sliderContainer = document.querySelector('.sliderContainer');
+        const widthSlider = sliderContainer.scrollWidth; 
+        const widthEcran = window.innerWidth
+        
+        return widthSlider - (widthEcran / 2);
+    }
+
+    const tween = gsap.to(".sliderContainer", {
+        x:function(){ return -1 * getScrollAmount();},
+        ease: "none",
+    });
+
+    ScrollTrigger.create({
+        trigger:".scrollContainer",
+        start:"top top",
+        end: function() { return "+=" + getScrollAmount(); },
+        pin:true,
+        animation:tween,
+        scrub:1,
+        markers:false
+    });
 });
-
-ScrollTrigger.create({
-    trigger:".scrollContainer",
-    start:"top top",
-    end: function() { return "+=" + getScrollAmount(); },
-    pin:true,
-    animation:tween,
-    scrub:1,
-    markers:false
-})
 
 
 //SECTIONS CONTENT

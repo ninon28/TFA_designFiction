@@ -27,7 +27,7 @@ ScrollTrigger.create({
     pin:true,
     animation:tween,
     scrub:1,
-    markers:true
+    markers:false
 })
 
 
@@ -42,6 +42,8 @@ for (let i = 1; i <= 13; i++){
 
     if (slide && section){
         slide.addEventListener('click', function() {
+            section.scrollTop = 0;
+
             section.classList.add('open');
             body.classList.add('no-scroll');
             console.log("c'est booon");
@@ -80,9 +82,11 @@ function prevSection(){
     elShow.classList.remove('open');
 
     if(elPrev){
+        elPrev.scrollTop = 0;
         elPrev.classList.add('open');
     }else{
         const elLast = sectionContainer.lastElementChild;
+        elLast.scrollTop = 0;
         elLast.classList.add('open');
     }
 }
@@ -94,50 +98,65 @@ function nextSection(){
     elShow.classList.remove('open');
 
     if(elNext){
+        elNext.scrollTop = 0;
         elNext.classList.add('open');
     }else{
         const elFirst = sectionContainer.firstElementChild;
+        elFirst.scrollTop = 0;
         elFirst.classList.add('open');
     }
 }
 
 //BOITE à OUTILS ANIMATION
-const boiteContainer = document.querySelectorAll('.boiteOutils__container');
+const boiteContainers = document.querySelectorAll('.boiteOutils__container');
 
-boiteContainer.forEach(function(boiteOpen){
-    boiteOpen.addEventListener('click', boiteActive);
+boiteContainers.forEach(function(boiteContainer){
+    boiteContainer.addEventListener('click', boiteActive);
 });
 
-function boiteActive(){
+function boiteActive(event){
     const boiteClicked = event.currentTarget;
 
     if(window.innerWidth < 1248){
-        const isOpen = document.querySelector('.boiteOutils__container.open2');
+        const boiteOpen = document.querySelector('.boiteOutils__container.open2');
 
-        if( boiteClicked === isOpen){
-            boiteClicked.classList.remove('open2');
+        if( boiteClicked === boiteOpen){
+            return;
         }else{
-            if(isOpen){
-                isOpen.classList.remove('open2');
+            if(boiteOpen){
+                boiteOpen.scrollTop = 0;
+                boiteOpen.classList.remove('open2');
             }
+            boiteClicked.scrollTop = 0;
             boiteClicked.classList.add('open2');
 
-            boiteClicked.scrollIntoView({ behavior: 'smooth', block: 'start'});
+            setTimeout(function() {
+                boiteClicked.scrollIntoView({ behavior: 'smooth', block: 'start'});
+            }, 350);
         }
-    }else{
-        const boiteContent = boiteClicked.querySelector('.boiteOutils__content');
-    
-        boiteClicked.classList.toggle('open2');
+    }else{    
+        boiteClicked.scrollTop = 0;
+        boiteClicked.classList.add('open2');
     }
 }
 
-//on ferme soit en recliquant sur le rectangle soit sur les flèches
+//on ferme en recliquant sur les flèches
 const btnFerme = document.querySelector('.btn--ferme');
 
 btnFerme.addEventListener('click', function(){
     const boiteActive = document.querySelector('.open2');
 
+    boiteActive.scrollTop = 0;
     boiteActive.classList.remove('open2');
+});
+
+//quand on clique sur les cartes elles se retournent comme en hover
+const cartes = document.querySelectorAll('.objet__carte');
+
+cartes.forEach(function(carte) {
+    carte.addEventListener('click', function() {
+        carte.classList.toggle('--flipped');
+    });
 });
 
 

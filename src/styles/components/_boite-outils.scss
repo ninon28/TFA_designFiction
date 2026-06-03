@@ -16,7 +16,6 @@
 
     &__container{
         position: absolute;
-        cursor: pointer;
         overflow: hidden;
 
         background-color: $bg-opacity;
@@ -68,8 +67,13 @@
 .objet{
     position: absolute;
     width: 220px;
-    height: 200px;
+    height: 180px;
     perspective: 600px;
+    cursor: pointer;
+
+    &--big{
+        height: 270px;
+    }
 
     @media (max-width: 1247px){
         position: relative;
@@ -85,15 +89,15 @@
         width: 100%;
         height: 100%;
         position: relative;
-        transition: transform .3s;
+        transition: transform .3s ease-in-out;
         transform-style: preserve-3d;
+    }
 
-        &:hover, &--flipped{
-            transform: rotateY(180deg);
-
-            @media (max-width: 1247px){
-                transform: none;
-            }
+    &:hover .objet__carte, &--flipped .objet__carte{
+        transform: rotateY(180deg);
+            
+        @media (max-width: 1247px){
+            transform: none;
         }
     }
     

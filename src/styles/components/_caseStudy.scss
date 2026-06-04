@@ -5,16 +5,37 @@
     width: 100dvw;
     overflow: hidden;
 
+    &__header{
+        margin: 40px 0 57px 0;
+    }
+
     &__box{
         display: flex;
         flex: 1;
         overflow: hidden;
+        position: relative;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 10;
+
+            box-shadow: 
+                inset 0px 80px 50px -30px rgb(13, 13, 13),  /* Fondu du haut */
+                inset 0px -80px 50px -30px rgb(13, 13, 13); /* Fondu du bas */
+        }
     }
 
     &__container{
         flex: 4;
         height: 100%;
         overflow-y: auto;
+        padding: 100px 0;
     }
 
     &__content{
@@ -22,13 +43,38 @@
 
         &--actif{
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             min-height: 100%;
+            padding: 0 28px;
         }
     }
 
-    &__date{
-        display: none;
+    &__img{
+        display: flex;
+        gap: 10px;
+        
+        img{
+            width: 75%;
+            border: 1px solid $text-color;
+            border-radius: 5px;
+        }
+
+        &--petit{
+            width: 60%;
+        }
+        
+        &--hover{
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            scale: 1;
+            transition: scale .3s ease-in-out;
+
+            &:hover{
+                scale: 1.05;
+            }
+
+        }
     }
 }
 
@@ -58,10 +104,8 @@
     }
 
     &__list{
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        padding: 40dvh 0;
+        padding: 40dvh 28px;
         
     }
     &__el{

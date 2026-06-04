@@ -171,12 +171,18 @@ if(accueil){
 const caseStudy = document.querySelector('.caseStudy');
 
 if(caseStudy){
+    const phone = window.matchMedia("(max-width: 699px)").matches;
+
     //on place l'endroit de l'intersection
     const observerOptions = {
         root: document.querySelector('.menu'),
         rootMargin: '-45% 0% -45% 0%',
         threshold: 0
     };
+
+    if(phone){
+        observerOptions.rootMargin = '0% -45% 0% -45%';
+    }
 
     function affichageDates(entries){
         //pour chaque entrée on regarde si elle intersecte
@@ -212,6 +218,7 @@ if(caseStudy){
 
     const observer = new IntersectionObserver(affichageDates, observerOptions);
     const dates = document.querySelectorAll('.menu__el');
+    
     dates.forEach(function(date){
         observer.observe(date);
     });

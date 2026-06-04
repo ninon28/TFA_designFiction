@@ -5,8 +5,13 @@
     width: 100dvw;
     overflow: hidden;
 
+    @media (max-width: 699px){
+        height: auto;
+        overflow: visible;
+    }
+
     &__header{
-        margin: 40px 0 57px 0;
+        margin: 40px 28px 57px 28px;
     }
 
     &__box{
@@ -15,19 +20,27 @@
         overflow: hidden;
         position: relative;
 
-        &::after{
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            pointer-events: none;
-            z-index: 10;
+        @media (max-width: 699px){
+            flex-direction: column;
+            padding: 15px 0 0 0;
+            overflow: visible;
+        }
 
-            box-shadow: 
-                inset 0px 80px 50px -30px rgb(13, 13, 13),  /* Fondu du haut */
-                inset 0px -80px 50px -30px rgb(13, 13, 13); /* Fondu du bas */
+        @media (min-width: 700px){
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                pointer-events: none;
+                z-index: 10;
+
+                box-shadow: 
+                    inset 0px 80px 50px -30px rgb(13, 13, 13),  /* Fondu du haut */
+                    inset 0px -80px 50px -30px rgb(13, 13, 13); /* Fondu du bas */
+            }
         }
     }
 
@@ -36,6 +49,12 @@
         height: 100%;
         overflow-y: auto;
         padding: 100px 0;
+
+        @media (max-width: 699px){
+            height: auto;
+            overflow: visible;
+            padding: 80px 0 0 0;
+        }
     }
 
     &__content{
@@ -52,6 +71,10 @@
     &__img{
         display: flex;
         gap: 10px;
+
+        @media (max-width: 699px){
+            flex-direction: column;
+        }
         
         img{
             width: 75%;
@@ -61,6 +84,10 @@
 
         &--petit{
             width: 60%;
+
+            @media (max-width: 699px){
+                width: 100%;
+            }
         }
         
         &--hover{
@@ -83,6 +110,12 @@
     height: 100%;
     position: relative;
 
+    @media (max-width: 699px){
+        flex: none;
+        height: auto;
+        width: 100%;
+    }
+
     &::before{
         content: '';
         position: absolute;
@@ -101,11 +134,30 @@
         height: 100%;
         overflow-y: auto;
         scroll-snap-type: y mandatory;
+
+        @media (max-width: 699px){
+            overflow-y: hidden;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
     }
 
     &__list{
         align-items: center;
         padding: 40dvh 28px;
+
+        @media (max-width: 699px){
+            display: flex;
+            flex-direction: row;
+            padding: 0 50dvw;
+            width: max-content;
+            gap: 80px;
+        }
         
     }
     &__el{

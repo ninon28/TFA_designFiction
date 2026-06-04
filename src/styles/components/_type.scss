@@ -22,6 +22,10 @@ li{
     list-style: none;
 }
 
+.links a{
+    text-decoration: underline;
+}
+
 a{
     color: inherit;
 }
@@ -92,4 +96,8 @@ a{
     @media (max-width: 1000px){
         margin: 0 28px;
     }
+}
+
+.credits{
+    margin: 0 28px;
 }

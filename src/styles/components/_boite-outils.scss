@@ -29,7 +29,7 @@
         @media (max-width: 1247px){
             position: relative;
             height: auto;
-            max-height: 116px;
+            max-height: 159px;
             margin: 5px 0;
         }
 
@@ -73,6 +73,10 @@
 
     &--big{
         height: 270px;
+
+        @media (max-width: 1247px){
+            width: 20%;
+        }
     }
 
     @media (max-width: 1247px){
@@ -83,6 +87,10 @@
 
     img{
         max-width: 100%;
+        
+        @media (max-width: 1247px){
+            width: 60%;
+        }
     }
 
     &__carte{
@@ -118,7 +126,8 @@
             gap: 5px;
             
             @media (max-width: 1247px){
-                display: none;
+                width: 20%;
+                margin-bottom: 20px;
             }
         }
 
@@ -128,6 +137,12 @@
             @media (max-width: 1247px){
                 transform: none;
             }
+        }
+    }
+
+    &--texte{
+        @media (max-width: 1247px){
+            display: none;
         }
     }
 }

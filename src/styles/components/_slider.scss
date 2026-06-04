@@ -17,6 +17,7 @@
     padding: 0 0 0 50vw;
     flex-wrap: nowrap;
     
+    //pour l'état hover des slides
     &:has(.sliderContainer__el:hover) &__el {
         transform: translateX(-150px);
     }

@@ -167,8 +167,60 @@ if(accueil){
     });
 }
 
+//CASE STUDY
+const caseStudy = document.querySelector('.caseStudy');
+
+if(caseStudy){
+    //on place l'endroit de l'intersection
+    const observerOptions = {
+        root: document.querySelector('.menu'),
+        rootMargin: '-50% 0% -50% 0%',
+        threshold: 0
+    };
+
+    function affichageDates(entries){
+        //pour chaque entrée on regarde si elle intersecte
+        entries.forEach(function(entry){
+            if(entry.isIntersecting){
+                const dates = document.querySelectorAll('.menu__el');
+
+                dates.forEach(function(date){
+                    //on enlève la classe active à tous
+                    date.classList.remove('menu__el--active');
+                });
+
+                //on ajoute la classe active à celui qui vient d'intersecter
+                entry.target.classList.add('menu__el--active');
+
+                const lien = entry.target.querySelector('a');
+                const lienId = lien.getAttribute('href');
+                const caseStudyContents = document.querySelectorAll('.caseStudy__content');
+                //on prend le 2e caractères dans le href car dans l'id pas de #
+                const link = lienId.substring(1)
+
+                caseStudyContents.forEach(function(caseStudyContent){
+                    caseStudyContent.classList.remove('caseStudy__content--actif');
+                });
+
+                const caseStudyActif = document.getElementById(link);
+                if(caseStudyActif){
+                    caseStudyActif.classList.add('caseStudy__content--actif');
+                } 
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver(affichageDates, observerOptions);
+    const dates = document.querySelectorAll('.menu__el');
+    dates.forEach(function(date){
+        observer.observe(date);
+    });
+}
+
 
 //FOOTER
 var currentYear = new Date().getFullYear();
 var yearFooter = document.querySelector(".annee");
-yearFooter.textContent = currentYear
+if (yearFooter) {
+    yearFooter.textContent = currentYear;
+}

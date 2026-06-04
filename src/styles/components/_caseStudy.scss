@@ -1,9 +1,19 @@
 .caseStudy{
     display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+
+    &__box{
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+    }
 
     &__container{
         flex: 4;
-        height: 100vh;
+        height: 100%;
         overflow-y: auto;
     }
 
@@ -13,7 +23,7 @@
         &--actif{
             display: flex;
             flex-direction: column;
-            height: 100%;
+            min-height: 100%;
         }
     }
 
@@ -24,26 +34,47 @@
 
 .menu{
     flex: 2;
-    height: 100vh;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    height: 100%;
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 172px;
+        height: 60px;
+        transform: translate(-50%, -50%);
+
+        background-color: $lightBg-color;
+        border-radius: 5px;
+        z-index: -1;
+    }
+
+    &__container{
+        height: 100%;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+    }
 
     &__list{
         display: flex;
         flex-direction: column;
-        padding: 40vh 0;
+        align-items: center;
+        padding: 40dvh 0;
         
     }
     &__el{
         font-size: clamp(1.25rem, 1.0818rem + 0.8969vw, 1.75rem);
         scroll-snap-align: center;
+        transition: font-weight .3s ease-in-out;
 
         a{
             text-decoration: none;
+            pointer-events: none;
         }
 
         &--active{
-            background-color: $color-grey;
             font-weight: 700;
         }
     }

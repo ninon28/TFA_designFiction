@@ -174,7 +174,7 @@ if(caseStudy){
     //on place l'endroit de l'intersection
     const observerOptions = {
         root: document.querySelector('.menu'),
-        rootMargin: '-50% 0% -50% 0%',
+        rootMargin: '-45% 0% -45% 0%',
         threshold: 0
     };
 

@@ -72,7 +72,7 @@
     cursor: pointer;
 
     &--big{
-        height: 270px;
+        height: 275px;
 
         @media (max-width: 1247px){
             width: 20%;
@@ -114,6 +114,7 @@
         height: 100%;
         width: 100%;
         backface-visibility: hidden;
+        background-color: $lightBg-color;
 
         @media (max-width: 1247px){
             position: relative;

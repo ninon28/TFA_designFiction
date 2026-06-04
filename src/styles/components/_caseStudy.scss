@@ -1,20 +1,50 @@
+.caseStudy{
+    display: flex;
+
+    &__container{
+        flex: 4;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    &__content{
+        display: none;
+
+        &--actif{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    }
+
+    &__date{
+        display: none;
+    }
+}
+
 .menu{
+    flex: 2;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+
     &__list{
         display: flex;
         flex-direction: column;
+        padding: 40vh 0;
         
     }
     &__el{
         font-size: clamp(1.25rem, 1.0818rem + 0.8969vw, 1.75rem);
+        scroll-snap-align: center;
+
         a{
             text-decoration: none;
         }
-    }
-}
 
-.content{
-
-    &__date{
-        display: none;
+        &--active{
+            background-color: $color-grey;
+            font-weight: 700;
+        }
     }
 }
